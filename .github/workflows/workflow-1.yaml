@@ -4,15 +4,23 @@ jobs:
   lint: 
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
       - name: lint
         run: npm lint
   test: 
     runs-on: ubuntu-latest
+    needs: lint
     steps: 
+      - name: checkout repository
+        uses: actions/checkout@v4
       - name: test
         run: npm test
   build: 
     runs-on: ubuntu-latest
+    needs: test
     steps: 
+      - name: checkout repository
+        uses: actions/checkout@v4
       - name: build
         run: npm build
