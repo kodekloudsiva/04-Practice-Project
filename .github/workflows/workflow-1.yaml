@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
       - name: lint
         run: npm lint
   test: 
@@ -14,6 +16,8 @@ jobs:
     steps: 
       - name: checkout repository
         uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
       - name: test
         run: npm test
   build: 
@@ -22,5 +26,7 @@ jobs:
     steps: 
       - name: checkout repository
         uses: actions/checkout@v4
+      - name: install dependencies
+        run: npm ci
       - name: build
         run: npm build
